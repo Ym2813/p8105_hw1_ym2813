@@ -7,7 +7,7 @@ output: github_document
 
 ## Problem 1
 
-```{r,include=FALSE}
+```{r, include=FALSE}
 library(tidyverse)
 ```
 
@@ -48,5 +48,30 @@ The logical vector and the factor vector was converted. In the logical vector, T
 
 
 ## Problem 2
+### Data description 
+```{r}
+data("penguins", package = "palmerpenguins")
+penguins
+```
+The "penguins" dataset contains `r ncol(penguins)` variables and `r nrow(penguins)` subjects. The variables include `r colnames(penguins)`.
+
+```{r}
+# mean of flipper with the NA values
+mean(pull(penguins,flipper_length_mm))     
+# mean of flipper after taking out the NAs
+mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
+```
+The mean of flipper length is unknown, `r mean(pull(penguins,flipper_length_mm))`. This is beacuse there are unknown values in the variable flipper_length_mm
+
+If we take out the unknown values from the flipper_length_mm variable, then the mean of flipper length is `r mean(pull(penguins,flipper_length_mm),na.rm=TRUE)`.
+
+### Scatter plot
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color  = (species)))+geom_point()
+ggsave("p8105_hw1_problem2_ym2813.pdf")
+```
+
+
+
 
 
