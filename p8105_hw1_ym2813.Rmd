@@ -67,7 +67,7 @@ If we take out the unknown values from the flipper_length_mm variable, then the 
 
 ### Scatter plot
 ```{r}
-ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color  = (species)))+geom_point()
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color  = (species))) + geom_point()
 ggsave("p8105_hw1_problem2_ym2813.pdf")
 ```
 
